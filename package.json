@@ -1,6 +1,6 @@
 {
   "name": "vue-knob",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "VueJS component inspired by jQuery Knob",
   "main": "dist/vue-knob.common.js",
   "unpkg": "dist/vue-knob",

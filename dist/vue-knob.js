@@ -11,7 +11,10 @@ var VueKnob$1 = { render: function render() {
   props: {
     value: {
       type: Number,
-      required: true
+      required: true,
+      validator: function validator(value) {
+        return value > 0 && value <= 100;
+      }
     }
   },
   computed: {
@@ -20,38 +23,37 @@ var VueKnob$1 = { render: function render() {
       return value + ' ' + (94 - value);
     },
     labelStyle: function labelStyle() {
+      var transformY = void 0;
       if (this.value === 100) {
-        var transform = "translateX(-0.75em) translateY(0.4em)";
+        transformY = 0.75;
       } else {
         if (this.value >= 10) {
-          var transform = "translateX(-0.5em) translateY(0.4em)";
+          transformY = 0.5;
         } else {
-          var transform = "translateX(-0.25em) translateY(0.4em)";
+          transformY = 0.25;
         }
       }
       return {
-        transform: transform,
+        transform: "translateX(-" + transformY + "em) translateY(0.4em)",
         'font-size': '0.7em'
       };
     }
   },
+  methods: {
+    computeValue: function computeValue(e) {
+      var rect = this.$refs.ring.getBoundingClientRect(),
+          centerX = rect.width / 2 + rect.left,
+          centerY = rect.height / 2 + rect.top,
+          clickX = e.clientX,
+          clickY = e.clientY;
+      var result = Math.atan2(centerY - clickY, centerX - clickX);
+      var percentage = (result + Math.PI) / (Math.PI + Math.PI);
+      this.$emit('input', Math.ceil(percentage * 100));
+    }
+  },
   mounted: function mounted() {
-    var vm = this;
-    vm.$nextTick(function () {
-      function onClick(e) {
-        var rect = vm.$refs.ring.getBoundingClientRect(),
-            centerX = rect.width / 2 + rect.left,
-            centerY = rect.height / 2 + rect.top,
-            clickX = e.clientX,
-            clickY = e.clientY;
-
-        var result = Math.atan2(centerY - clickY, centerX - clickX);
-        var percentage = (result + Math.PI) / (Math.PI + Math.PI);
-        vm.$emit('input', Math.ceil(percentage * 100));
-      }
-      vm.$refs.ring.addEventListener('click', onClick);
-      vm.$refs.segment.addEventListener('click', onClick);
-    });
+    this.$refs.ring.addEventListener('click', this.computeValue);
+    this.$refs.segment.addEventListener('click', this.computeValue);
   }
 };
 
