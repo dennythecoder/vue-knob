@@ -2,14 +2,16 @@
 
 > VueJS component inspired by jQuery Knob
 
+## [Demo](https://codesandbox.io/s/mo4zj8jpw8)
+
 ## Usage
 
 ``` bash
 npm install vue-knob
 
 import Vue from 'vue'
-import vue-knob from 'vue-knob'
-Vue.component(vue-knob)
+import VueKnob from 'vue-knob'
+Vue.component(VueKnob)
 ```
 ``` html
 <vue-knob v-model="myNumber" />
