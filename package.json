@@ -1,0 +1,54 @@
+{
+  "name": "vue-knob",
+  "version": "1.0.0",
+  "description": "VueJS component inspired by jQuery Knob",
+  "main": "dist/vue-knob.common.js",
+  "unpkg": "dist/vue-knob",
+  "poi": {
+    "entry": "dev/main.js",
+    "dist": "dev/dist",
+    "homepage": "/vue-knob/"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo 'no tests!' && npm run lint",
+    "prepublish": "npm run build",
+    "lint": "xo",
+    "build": "bili",
+    "build:example": "poi build",
+    "dev": "poi --port 5000"
+  },
+  "author": "Denny <dennythecoder@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-stage-2": "^6.24.1",
+    "bili": "^0.16.0-rc.2",
+    "eslint-config-rem": "^3.0.0",
+    "poi": "^9.1.0",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-vue": "^2.4.2",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "vue": "^2.4.2",
+    "xo": "^0.18.0"
+  },
+  "xo": {
+    "extends": "rem/prettier",
+    "ignores": [
+      "dev/**"
+    ]
+  },
+  "babel": {
+    "presets": [
+      [
+        "vue-app",
+        {
+          "useBuiltIns": true
+        }
+      ]
+    ]
+  }
+}
