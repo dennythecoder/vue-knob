@@ -4,6 +4,8 @@
 
 ## [Demo](https://codesandbox.io/s/mo4zj8jpw8)
 
+![alt text](https://github.com/dennythecoder/vue-knob/raw/master/component.png)
+
 ## Usage
 
 ``` bash
