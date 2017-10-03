@@ -1,13 +1,13 @@
 <template>
-    <my-component></my-component>
+    <div><vue-knob v-model="myVal"></vue-knob></div>
 </template>
 <script>
-    import MyComponent from '../src/index'
+    import VueKnob from '../src/index'
     export default {
-        components: {MyComponent},
+        components: {VueKnob},
         data () {
             return {
-                msg: 'Hello'
+                myVal:5
             }
         }
     }

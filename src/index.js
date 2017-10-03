@@ -1,3 +1,3 @@
-import MyComponent from './MyComponent.vue'
+import VueKnob from './VueKnob.vue'
 
-export default MyComponent
+export default VueKnob
