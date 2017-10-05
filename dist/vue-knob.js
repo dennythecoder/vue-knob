@@ -5,7 +5,7 @@
 }(this, (function () { 'use strict';
 
 var VueKnob$1 = { render: function render() {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('svg', { attrs: { "width": "100%", "height": "100%", "viewBox": "0 0 42 42", "preserveAspectRatio": "" } }, [_c('circle', { staticClass: "hole", attrs: { "cx": "21", "cy": "21", "r": "15", "fill": "#fff" } }), _vm._v(" "), _c('circle', { ref: "ring", staticClass: "ring", attrs: { "cx": "21", "cy": "21", "r": "15", "fill": "transparent", "stroke": "#d2d3d4", "stroke-width": "5" } }), _vm._v(" "), _c('circle', { ref: "segment", staticClass: "segment", attrs: { "cx": "21", "cy": "21", "r": "15", "fill": "transparent", "stroke": "#17d", "stroke-width": "5", "stroke-dasharray": _vm.strokeDasharray, "stroke-dashoffset": "0" } }), _vm._v(" "), _c('g', [_c('text', { style: _vm.labelStyle, attrs: { "y": "50%", "x": "50%" } }, [_vm._v(" " + _vm._s(_vm.value) + " ")])])]);
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('svg', { attrs: { "width": "100%", "height": "100%", "viewBox": "0 0 42 42", "preserveAspectRatio": "" } }, [_c('circle', { staticClass: "hole", attrs: { "cx": "21", "cy": "21", "r": "15", "fill": "#fff" } }), _vm._v(" "), _c('circle', { ref: "ring", staticClass: "ring", attrs: { "cx": "21", "cy": "21", "r": "15", "fill": "transparent", "stroke": "#d2d3d4", "stroke-width": "5" } }), _vm._v(" "), _c('circle', { ref: "segment", staticClass: "segment", attrs: { "cx": "21", "cy": "21", "r": "15", "fill": "transparent", "stroke": _vm.color, "stroke-width": "5", "stroke-dasharray": _vm.strokeDasharray, "stroke-dashoffset": "0" } }), _vm._v(" "), _c('g', [_c('text', { style: _vm.labelStyle, attrs: { "y": "50%", "x": "50%" } }, [_vm._v(" " + _vm._s(_vm.value) + " ")])])]);
   }, staticRenderFns: [],
   template: '#vue-knob',
   props: {
@@ -15,6 +15,11 @@ var VueKnob$1 = { render: function render() {
       validator: function validator(value) {
         return value > 0 && value <= 100;
       }
+    },
+    color: {
+      type: String,
+      required: false,
+      default: '#17d'
     }
   },
   computed: {
