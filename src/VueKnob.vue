@@ -24,7 +24,7 @@
           cy="21"
           r="15"
           fill="transparent"
-          stroke="#17d"
+          :stroke="color"
           stroke-width="5"
           :stroke-dasharray="strokeDasharray"
           stroke-dashoffset="0">
@@ -47,6 +47,11 @@ export default {
       validator: (value) => {
          return value > 0 && value <=100
       }
+    },
+    color:{
+      type:String,
+      required:false,
+      default:'#17d'
     }
   },
   computed:{

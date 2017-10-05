@@ -1,5 +1,5 @@
 <template>
-    <div><vue-knob v-model="myVal"></vue-knob></div>
+    <div><vue-knob v-model="myVal" color="#f33"></vue-knob></div>
 </template>
 <script>
     import VueKnob from '../src/index'
